@@ -1,0 +1,12 @@
+{
+    "Item Name": {
+        "date": {
+            "m": "Most common price",
+            "c": "Sold for most common price",
+            "ca": "Total sold",
+            "a": "Average of 3 most popular prices",
+            "g": "Most common price in bryłka (1b = 500kk yang), useless value",
+            "v": "I have no fucking idea what it's for"
+        }
+    }
+}

@@ -26,8 +26,8 @@ function findItemsBelongsToGroup(group, itemData) {
 }
 
 // I am losing sanity, sorry for that, copied from stack overflow ^^
-function roundToTwoDecimalPlaces(num) {
-    return Math.round((num + Number.EPSILON) * 100) / 100;
+function roundToOneDecimalPlace(num) {
+    return Math.round((num + Number.EPSILON) * 10) / 10;
 }
 /** 
  * Will convert item to price in bryłka per 100 with accuracy to 2 decimal places
@@ -35,13 +35,13 @@ function roundToTwoDecimalPlaces(num) {
  * */
 function convertPricesToBPer100(item) {
     item.mostPopularPrice = item.mostPopularPrice / CENA_BRYLKI; //price per 1 item
-    item.mostPopularPrice = roundToTwoDecimalPlaces(item.mostPopularPrice * 100); //price per 100 items
+    item.mostPopularPrice = roundToOneDecimalPlace(item.mostPopularPrice * 100); //price per 100 items
 
     item.mostPopularPriceAvg = item.mostPopularPriceAvg / CENA_BRYLKI;
-    item.mostPopularPriceAvg = roundToTwoDecimalPlaces(item.mostPopularPriceAvg * 100);
+    item.mostPopularPriceAvg = roundToOneDecimalPlace(item.mostPopularPriceAvg * 100);
 
     item.todaysMostPopularPrice = item.todaysMostPopularPrice / CENA_BRYLKI;
-    item.todaysMostPopularPrice = roundToTwoDecimalPlaces(item.todaysMostPopularPrice * 100);
+    item.todaysMostPopularPrice = roundToOneDecimalPlace(item.todaysMostPopularPrice * 100);
 }
 
 // I must visit a doctor

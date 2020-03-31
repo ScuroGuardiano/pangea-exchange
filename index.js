@@ -13,11 +13,14 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use("/", express.static("./client"));
+app.get("/", (req, res) => res.redirect("/index.html"));
+
 /**
  * Raw output from https://pangeayt2.eu/offshop_exchange_stat.php  
  * Basically it's proxy
  */
-app.get("/raw", async (req, res) => {
+app.get("/api/raw", async (req, res) => {
     try {
         const data = await nicolasCache.getWithCache("https://pangeayt2.eu/offshop_exchange_stat.php");
         return res.status(200).json(data);
@@ -30,7 +33,7 @@ app.get("/raw", async (req, res) => {
 /**
  * Will calculate most popular, average and sold items from 7 days, much smaller json size
  */
-app.get("/optimized", async(req, res) => {
+app.get("/api/optimized", async(req, res) => {
     try {
         const items = await nicolasCache.getWithCache("https://pangeayt2.eu/offshop_exchange_stat.php");
         const optimized = {};

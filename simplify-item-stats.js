@@ -18,12 +18,10 @@ module.exports = function simplifyItemStats(item) {
     });
 
     let mostPopularPrice = 
-        getKeyByValue(
+        parseInt(getKeyByValue(
             soldByMostPopularPrice, 
             Math.max(...Object.values(soldByMostPopularPrice))
-        );
-    mostPopularPrice = parseInt(mostPopularPrice);
-
+        ));
     let soldForMostPopularPrices = 
         Object.values(soldByMostPopularPrice)
         .reduce((acc, curr) => acc += curr);

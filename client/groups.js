@@ -114,5 +114,43 @@ const ITEM_GROUPS = {
             "Mieszanka Baek-Go VII",
             "Kociołek Baek-Go"
         ]
+    },
+    "Łowienie": {
+        "Łowienie": [
+            "Taj. Szafirowa Skrzynia",
+            "Ikra Pospolitej Ryby",
+            "Ikra Rzadkiej Ryby",
+            "Ikra Legendarnej Ryby",
+            "Karaś",
+            "Ryba Mandaryna",
+            "Duży Karaś",
+            "Karp",
+            "Łosoś",
+            "Amur",
+            "Pstrąg",
+            "Węgorz",
+            "Tęczowy Pstrąg",
+            "Rzeczny Pstrąg",
+            "Krasnopiórka",
+            "Okoń",
+            "Tenchi",
+            "Sum",
+            "Piskorz",
+            "Ryba Lotosu",
+            "Słodka Ryba",
+            "Gromadnik",
+            "Shiri",
+            "Lustrzany Karp",
+            "Złoty Karaś",
+            "Okoń Czerwony",
+            "Różanka",
+            "Srebrzyk",
+            "Złotnica",
+            "Błazenek",
+            "Welonica",
+            "Pstrąg Tygrysi",
+            "Płazenica",
+            "Skrętnica"
+        ]
     }
 }

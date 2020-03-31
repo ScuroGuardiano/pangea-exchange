@@ -7,9 +7,12 @@ body {
     color: #aa8;
     font-family: Arial, Helvetica, sans-serif;
 }
+.category:first-child {
+    margin-top: 10px;
+}
 .category {
     border: 2px #443 solid;
-    margin: 10px 10px;
+    margin: 30px 10px;
 }
 .category header {
     background-color: #333;

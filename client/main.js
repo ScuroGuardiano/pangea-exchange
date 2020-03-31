@@ -9,6 +9,7 @@ async function main() {
     const targetDisplayElement = document.body;
 
     displayUlepy(itemData, targetDisplayElement);
+    displayLowienie(itemData, targetDisplayElement);
 }
 
 function findItemsBelongsToGroup(group, itemData) {
@@ -30,7 +31,7 @@ function roundToOneDecimalPlace(num) {
     return Math.round((num + Number.EPSILON) * 10) / 10;
 }
 /** 
- * Will convert item to price in bryłka per 100 with accuracy to 2 decimal places
+ * Will convert item to price in bryłka per 100 with accuracy to 1 decimal place
  * @param {IItem} item 
  * */
 function convertPricesToBPer100(item) {
@@ -42,6 +43,15 @@ function convertPricesToBPer100(item) {
 
     item.todaysMostPopularPrice = item.todaysMostPopularPrice / CENA_BRYLKI;
     item.todaysMostPopularPrice = roundToOneDecimalPlace(item.todaysMostPopularPrice * 100);
+}
+/** 
+ * Will convert item to price in bryłka per 1 with accuracy to 1 decimal place
+ * @param {IItem} item 
+ * */
+function convertPricesToBPer1(item) {
+    item.mostPopularPrice = roundToOneDecimalPlace(item.mostPopularPrice / CENA_BRYLKI);
+    item.mostPopularPriceAvg = roundToOneDecimalPlace(item.mostPopularPriceAvg / CENA_BRYLKI);
+    item.todaysMostPopularPrice = roundToOneDecimalPlace(item.todaysMostPopularPrice / CENA_BRYLKI);
 }
 
 // I must visit a doctor
@@ -89,4 +99,16 @@ function displayUlepy(itemData, renderTarget) {
             "Other"
         ]);
     renderTarget.appendChild(groupRenderObject.toHTMLElement());
+}
+
+/** @param {{[key: string]: IItem}} itemData*/
+function displayLowienie(itemData, renderTarget) {
+    const lowienie = findItemsBelongsToGroup(ITEM_GROUPS["Łowienie"], itemData);
+    Object.values(lowienie["Łowienie"]).forEach(item => {
+        convertPricesToBPer1(item);
+    });
+
+    const renderObject = itemGroupListFuckingIdkWhatToCategory("Łowienie", lowienie, "b");
+
+    renderTarget.appendChild(renderObject.toHTMLElement());
 }
